@@ -2,7 +2,8 @@
 
 ## Quick start
 
-Set up env.
+### Set up env
+
 To test locally, save to `.env`.
 To run on github actions, set them to repository secrets.
 
@@ -11,15 +12,16 @@ NOTCMS_SECRET_KEY=<your secret key>
 NOTCMS_WORKSPACE_ID=<your workspace id>
 ```
 
-Set up webhook
-[reference](https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event)
+Get them from NotCMS dashboard.
 
-```sh
-curl -L \
-  -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer <YOUR-TOKEN>" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  https://api.github.com/repos/OWNER/REPO/dispatches \
-  -d '{"event_type":"sync_zenn"}'
+### Set up webhook
+
+```txt
+URL: https://api.notcms.com/beta/forward_github_actions/OWNER/REPO?event_type=sync_zenn
+KEY:
+  Authorization: Bearer github_pat_***
 ```
+
+Replace `OWNER` and `REPO` with your actual repo name.
+
+Create a key by yourself with permission to trigger webhook.
