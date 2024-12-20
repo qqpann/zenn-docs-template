@@ -4,6 +4,8 @@ on:
   repository_dispatch:
     types: [sync_zenn]
   workflow_dispatch:
+  # schedule:
+  #   - cron: "0 3 * * *" # 毎日午前3時に実行
 
 jobs:
   sync_and_commit:
